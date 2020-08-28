@@ -10,10 +10,13 @@ import UIKit
 
 class ItemCell: UICollectionViewCell {
     
-    var textLabel = UILabel()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var textLabel = UILabel(frame: CGRect(x: 30.0, y: 15.0, width: 50.0, height: 45.0))
+    
+    func setupSubViews() {
+        self.addSubview(textLabel)
+        textLabel.textColor = UIColor.black
+        self.layer.cornerRadius = 10
     }
 
     func setData(text: String) {

@@ -1,5 +1,5 @@
 //
-//  WordSearchViewController.swift
+//  WordSearchView.swift
 //  WordSearch Game
 //
 //  Created by Vanessa Landayan on 2020-08-27.
@@ -9,78 +9,42 @@
 import Foundation
 import UIKit
 
-class WordSearchViewController: UIViewController, UICollectionViewDelegate {
-
-    let dataArray = ["A","B","C","D","E","F","G","H","I", "K",
-                     "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K",
-                    "A","B","C","D","E","F","G","H","I", "K"]
+class WordSearchView: UIView {
     
-    var estimateWidth = 160.0
-    var cellMarginSize = 16.0
-    var cellsInARow = 10.0
-    var cellsInAColumn = 10.0
+    /// Dimensions
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     
+    let padding: CGFloat = 16.0
+    
+    /// Colors
     let seaBlue = UIColor(red: 0, green: 0.8196, blue: 0.8784, alpha: 1.0) /* #00d1e0 */
     
+    /// Grid CollectionView
+    var collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public init() {
+        super.init(frame: .zero)
+        setupView()
         
-        let flowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayout)
+        let collectionViewSize = CGRect(x: Double(padding/2), y: Double(screenHeight-screenWidth)/2.0, width: Double(screenWidth - padding), height: Double(screenWidth))
+        collectionView.frame = collectionViewSize
+        collectionView.backgroundColor = seaBlue
+        collectionView.layer.cornerRadius = 10
+    }
+    
+    func setupView() {
+        
         collectionView.register(ItemCell.self, forCellWithReuseIdentifier: "ItemCell")
         
-        // View Setup
-        self.view.backgroundColor = seaBlue
+        self.backgroundColor = seaBlue
         
-        // Set Delegates
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = seaBlue
-
-        self.view.addSubview(collectionView)
+        addSubview(collectionView)
     }
     
-    override func viewDidLayoutSubviews() {
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension WordSearchViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataArray.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
-        cell.backgroundColor = UIColor.red
-        cell.textLabel.textColor = UIColor.green
-        return cell
-    }
-}
-
-extension WordSearchViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.calculateWidth()
-        return CGSize(width: 20, height: 20)
-    }
-    
-    func calculateWidth() -> CGFloat {
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        let marginSpace = (cellMarginSize * cellsInARow) - 1
-        
-        let width = (Double(screenWidth) - marginSpace)/cellsInARow
-        return CGFloat(width)
-    }
 }
