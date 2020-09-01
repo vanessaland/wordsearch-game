@@ -17,6 +17,10 @@ class WordSearchView: UIView {
     
     let padding: CGFloat = 16.0
     
+    /// Font
+    var textColor = UIColor(red:0.00, green:0.66, blue:0.91, alpha:1.0)
+    var font = UIFont(name: "GillSans-Bold", size: 25.0)!
+    
     /// Labels
     var label1 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
     var label2 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
@@ -30,12 +34,11 @@ class WordSearchView: UIView {
     
     lazy var wordsFoundStackView:UIStackView = {
         let s = UIStackView(frame: self.bounds)
-        s.axis = .vertical
-        s.distribution = .fillProportionally
-        s.alignment = .center
-        s.spacing = 50.0
+        s.axis = .horizontal
+        s.distribution = .equalSpacing
+        s.alignment = .fill
+        s.spacing = 10.0
         s.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //s.backgroundColor = UIColor(red:0.75, green:0.99, blue:1.00, alpha:1.0)
         
         s.addArrangedSubview(label1)
         s.addArrangedSubview(label2)
@@ -71,6 +74,20 @@ class WordSearchView: UIView {
         label4.text = "Hello"
         label5.text = "Hello"
         label6.text = "Hello"
+        
+        label1.textColor = .black
+        label2.textColor = textColor
+        label3.textColor = textColor
+        label4.textColor = textColor
+        label5.textColor = textColor
+        label6.textColor = textColor
+        
+        label1.font = font
+        label2.font = font
+        label3.font = font
+        label4.font = font
+        label5.font = font
+        label6.font = font
         
         collectionView.backgroundColor = UIColor(red:0.78, green:0.91, blue:1.00, alpha:1.0)
         collectionView.layer.cornerRadius = 10
