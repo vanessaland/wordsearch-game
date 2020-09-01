@@ -14,6 +14,7 @@
 		26A9AE2424F7755C00678256 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A9AE2324F7755C00678256 /* Preview Assets.xcassets */; };
 		26A9AE2F24F775A600678256 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9AE2E24F775A600678256 /* WordSearchViewController.swift */; };
 		26A9AE3124F7804900678256 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9AE3024F7804900678256 /* ItemCell.swift */; };
+		26CB130124FDFBB600390563 /* WordsFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB130024FDFBB600390563 /* WordsFoundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		26A9AE2824F7755C00678256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26A9AE2E24F775A600678256 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
 		26A9AE3024F7804900678256 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		26CB130024FDFBB600390563 /* WordsFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFoundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				26A9AE2E24F775A600678256 /* WordSearchViewController.swift */,
 				26271CD724F8B7D70085D531 /* WordSearchView.swift */,
 				26A9AE3024F7804900678256 /* ItemCell.swift */,
+				26CB130024FDFBB600390563 /* WordsFoundView.swift */,
 				26A9AE2024F7755C00678256 /* Assets.xcassets */,
 				26A9AE2824F7755C00678256 /* Info.plist */,
 				26A9AE2224F7755C00678256 /* Preview Content */,
@@ -150,6 +153,7 @@
 			files = (
 				26A9AE3124F7804900678256 /* ItemCell.swift in Sources */,
 				26A9AE2F24F775A600678256 /* WordSearchViewController.swift in Sources */,
+				26CB130124FDFBB600390563 /* WordsFoundView.swift in Sources */,
 				26271CD824F8B7D70085D531 /* WordSearchView.swift in Sources */,
 				26A9AE1B24F7755B00678256 /* AppDelegate.swift in Sources */,
 				26A9AE1D24F7755B00678256 /* SceneDelegate.swift in Sources */,

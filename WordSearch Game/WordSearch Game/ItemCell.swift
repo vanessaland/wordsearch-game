@@ -15,7 +15,8 @@ class ItemCell: UICollectionViewCell {
     
     func setupSubViews() {
         self.addSubview(textLabel)
-        textLabel.textColor = UIColor.black
+        textLabel.textColor = UIColor(red:0.00, green:0.66, blue:0.91, alpha:1.0)
+        textLabel.font = UIFont(name: "GillSans-Bold", size: 25.0)!
         self.layer.cornerRadius = 10
     }
 

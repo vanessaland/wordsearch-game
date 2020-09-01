@@ -17,29 +17,72 @@ class WordSearchView: UIView {
     
     let padding: CGFloat = 16.0
     
-    /// Colors
-    let seaBlue = UIColor(red: 0, green: 0.8196, blue: 0.8784, alpha: 1.0) /* #00d1e0 */
+    /// Labels
+    var label1 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
+    var label2 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
+    var label3 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
+    var label4 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
+    var label5 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
+    var label6 = UILabel(frame: CGRect(x: 0.0, y: 20.0, width: 100.0, height: 45.0))
     
     /// Grid CollectionView
     var collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    lazy var wordsFoundStackView:UIStackView = {
+        let s = UIStackView(frame: self.bounds)
+        s.axis = .vertical
+        s.distribution = .fillProportionally
+        s.alignment = .center
+        s.spacing = 50.0
+        s.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //s.backgroundColor = UIColor(red:0.75, green:0.99, blue:1.00, alpha:1.0)
+        
+        s.addArrangedSubview(label1)
+        s.addArrangedSubview(label2)
+        s.addArrangedSubview(label3)
+        s.addArrangedSubview(label4)
+        s.addArrangedSubview(label5)
+        s.addArrangedSubview(label6)
+        
+        return s
+    }()
+
+    lazy var mainStackView:UIStackView = {
+        let s = UIStackView(frame: self.bounds)
+        s.axis = .vertical
+        s.distribution = .fill
+        s.alignment = .fill
+        s.spacing = 50.0
+        s.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        s.backgroundColor = UIColor(red:0.75, green:0.99, blue:1.00, alpha:1.0)
+        s.addArrangedSubview(collectionView)
+        s.addArrangedSubview(wordsFoundStackView)
+    
+        return s
+    }()
     
     public init() {
         super.init(frame: .zero)
         setupView()
         
-        let collectionViewSize = CGRect(x: Double(padding/2), y: Double(screenHeight-screenWidth)/2.0, width: Double(screenWidth - padding), height: Double(screenWidth))
-        collectionView.frame = collectionViewSize
-        collectionView.backgroundColor = seaBlue
+        label1.text = "Words Found"
+        label2.text = "Hello"
+        label3.text = "Hello"
+        label4.text = "Hello"
+        label5.text = "Hello"
+        label6.text = "Hello"
+        
+        collectionView.backgroundColor = UIColor(red:0.78, green:0.91, blue:1.00, alpha:1.0)
         collectionView.layer.cornerRadius = 10
+        
     }
     
     func setupView() {
         
         collectionView.register(ItemCell.self, forCellWithReuseIdentifier: "ItemCell")
         
-        self.backgroundColor = seaBlue
-        
-        addSubview(collectionView)
+        self.backgroundColor = UIColor(red:0.82, green:0.82, blue:1.00, alpha:1.0)
+        addSubview(mainStackView)
     }
     
     required init?(coder: NSCoder) {
